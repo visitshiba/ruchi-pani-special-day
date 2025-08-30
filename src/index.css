@@ -1,40 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Beautiful Birthday Website Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm artistic color palette inspired by painting */
+    --background: 25 45% 97%;
+    --foreground: 30 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 20 50% 98%;
+    --card-foreground: 30 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 20 50% 98%;
+    --popover-foreground: 30 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Warm peachy-gold primary */
+    --primary: 15 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 90% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft purple secondary */
+    --secondary: 280 35% 85%;
+    --secondary-foreground: 280 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Gentle warm muted tones */
+    --muted: 25 35% 92%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm accent colors */
+    --accent: 35 75% 80%;
+    --accent-foreground: 35 25% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 25% 88%;
+    --input: 25 25% 90%;
+    --ring: 15 85% 65%;
+
+    /* Beautiful gradients for artistic feel */
+    --gradient-primary: linear-gradient(135deg, hsl(15 85% 65%), hsl(25 90% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 35% 85%), hsl(310 40% 90%));
+    --gradient-warm: linear-gradient(135deg, hsl(25 45% 97%), hsl(35 55% 95%));
+    --gradient-sunset: linear-gradient(135deg, hsl(15 85% 65%), hsl(35 75% 80%), hsl(280 35% 85%));
+    
+    /* Artistic shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(15 85% 65% / 0.15);
+    --shadow-glow: 0 0 30px hsl(25 90% 75% / 0.3);
+    --shadow-warm: 0 8px 32px -8px hsl(35 75% 80% / 0.2);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -100,6 +121,46 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+    background: var(--gradient-warm);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-dancing;
+  }
+
+  .gradient-text {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
